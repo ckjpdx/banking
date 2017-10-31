@@ -28,7 +28,8 @@ $(document).ready(function() {
     var inputDeposit = parseInt($('#input-deposit').val());
     var inputWithdraw = parseInt($('#input-withdraw').val());
     accounts.forEach(function(account){
-      if (existingUser === account.name){
+      debugger;
+      if (existingUser === account.user){
         if (inputDeposit) {
           account.deposit(inputDeposit);
         }
