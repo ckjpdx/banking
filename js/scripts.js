@@ -15,10 +15,29 @@ BankAccount.prototype.withdraw = function (withdrawAmt) {
 $(document).ready(function() {
   var accounts = [];
   $("#register-form").submit(function(event) {
-    var userName = $('#input-new-user').val();
-    var initialDeposit = $('#input-initial-deposit').val();
-    var newUser = new BankAccount(userName, initialDeposit);
     event.preventDefault();
+    var userName = $('#input-new-user').val();
+    var initialDeposit = parseInt($('#input-initial-deposit').val());
+    var newAccount = new BankAccount(userName, initialDeposit);
+    accounts.push(newAccount);
+    $('#balance-span').text(initialDeposit);
+  });
+  $("#transfer-form").submit(function(event) {
+    event.preventDefault();
+    var existingUser = $('#input-existing-user').val();
+    var inputDeposit = parseInt($('#input-deposit').val());
+    var inputWithdraw = parseInt($('#input-withdraw').val());
+    accounts.forEach(function(account){
+      if (existingUser === account.name){
+        if (inputDeposit) {
+          account.deposit(inputDeposit);
+        }
+        if (inputWithdraw) {
+          account.withdraw(inputWithdraw);
+        }
+        $('#balance-span').text(account.balance);
+      } // end forEach
+    });
   });
 
 });
