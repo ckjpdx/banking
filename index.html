@@ -21,24 +21,28 @@
             <div class="col-6 card">
               <form id="register-form">
                 <label>Name:</label>
-                <input id="input-name" type="text">
+                <input id="input-new-user" type="text">
                 <label>Initial Deposit:</label>
                 <input id="input-initial-deposit" type="text">
+                <button class="btn btn-dark" type="submit" name="button" id="create">Create Account</button>
               </form>
             </div>
           </div>
         </div>
-        <div class="col-md-6" id="depositWithdrawl">
+        <div class="col-md-6" id="deposit-withdrawl">
           <div class="row">
             <h3>Deposit or withdraw funds:</h3>
           </div>
           <div class="row">
             <div class="col-6 card">
               <form id="transfer-form">
+                <label>Name:</label>
+                <input id="input-existing-user" type="text">
                 <label>Deposit:</label>
                 <input id="input-deposit" type="text">
                 <label>Withdraw:</label>
                 <input id="input-withdraw" type="text">
+                <button class="btn btn-dark" type="submit" name="button" id="update-balance">Update Balance</button>
               </form>
             </div>
           </div>
