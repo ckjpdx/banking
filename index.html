@@ -12,15 +12,50 @@
       <div class="header jumbotron">
         <h2>Holla 4 Dollas</h2>
       </div>
-      <div class="row actions">
+      <div class="row">
         <div class="col-md-6" id="register">
-          <h3>Register a new Account</h3>
+          <div class="row">
+            <h3>Register new account:</h3>
+          </div>
+          <div class="row">
+            <div class="col-6 card">
+              <form id="register-form">
+                <label>Name:</label>
+                <input id="input-name" type="text">
+                <label>Initial Deposit:</label>
+                <input id="input-initial-deposit" type="text">
+              </form>
+            </div>
+          </div>
         </div>
         <div class="col-md-6" id="depositWithdrawl">
-          <h3>Deposit or withdraw funds:</h3>
+          <div class="row">
+            <h3>Deposit or withdraw funds:</h3>
+          </div>
+          <div class="row">
+            <div class="col-6 card">
+              <form id="transfer-form">
+                <label>Deposit:</label>
+                <input id="input-deposit" type="text">
+                <label>Withdraw:</label>
+                <input id="input-withdraw" type="text">
+              </form>
+            </div>
+          </div>
         </div>
       </div>
-
+      <div class="card m-5">
+        <div class="row text-center">
+          <div class="col">
+            <h3>Current Balance:</h3>
+          </div>
+        </div>
+        <div class="row text-center">
+          <div class="col">
+            <h3><span id="balance-span">$$$</span></h3>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
