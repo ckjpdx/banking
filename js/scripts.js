@@ -8,8 +8,21 @@ BankAccount.prototype.deposit = function (depositAmt) {
 BankAccount.prototype.withdraw = function (withdrawAmt) {
   this.balance -= withdrawAmt;
 };
-
-
+function existingUserTransfer(accounts, existingUser, inputDeposit, inputWithdraw){
+  var returnBalance;
+  accounts.forEach(function(account){
+    if (existingUser === account.user){
+      if (inputDeposit) {
+        account.deposit(inputDeposit);
+      }
+      if (inputWithdraw) {
+        account.withdraw(inputWithdraw);
+      }
+      returnBalance = account.balance;
+    }
+  });
+  return returnBalance;
+}
 
 // FRONTEND
 $(document).ready(function() {
@@ -27,18 +40,7 @@ $(document).ready(function() {
     var existingUser = $('#input-existing-user').val();
     var inputDeposit = parseInt($('#input-deposit').val());
     var inputWithdraw = parseInt($('#input-withdraw').val());
-    accounts.forEach(function(account){
-      debugger;
-      if (existingUser === account.user){
-        if (inputDeposit) {
-          account.deposit(inputDeposit);
-        }
-        if (inputWithdraw) {
-          account.withdraw(inputWithdraw);
-        }
-        $('#balance-span').text(account.balance);
-      } // end forEach
+    var currentBalance = existingUserTransfer(accounts, existingUser, inputDeposit, inputWithdraw);
+    $('#balance-span').text(currentBalance);
     });
   });
-
-});
